@@ -201,13 +201,13 @@
 # Uncomment the following line for direct access to Django settings such as
 # MIDDLEWARE_CLASSES or APPS
 from graphite.app_settings import *
+import os
+
 if os.getenv('ENV').lower() == 'prod':
     # Enable IAP authentication.
     MIDDLEWARE_CLASSES += ('pyiap.middleware.django.VerifyJWTMiddleware',)
     MIDDLEWARE_CLASSES += ('django.contrib.auth.middleware.RemoteUserMiddleware',)
     AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.RemoteUserBackend']
-
-import os
 
 LOG_DIR = '/var/log/graphite'
 SECRET_KEY = '$(date +%s | sha256sum | base64 | head -c 64)'
