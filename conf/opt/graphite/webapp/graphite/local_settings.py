@@ -203,7 +203,7 @@
 from graphite.app_settings import *
 import os
 
-if os.getenv('ENV').lower() == 'prod':
+if os.environ.get('ENABLE_IAP', '0') == '1':
     # Enable IAP authentication.
     MIDDLEWARE_CLASSES += ('pyiap.middleware.django.VerifyJWTMiddleware',)
     MIDDLEWARE_CLASSES += ('django.contrib.auth.middleware.RemoteUserMiddleware',)
