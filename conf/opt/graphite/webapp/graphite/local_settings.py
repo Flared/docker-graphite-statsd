@@ -209,6 +209,9 @@ if os.environ.get('ENABLE_IAP', '0') == '1':
     MIDDLEWARE_CLASSES += ('django.contrib.auth.middleware.RemoteUserMiddleware',)
     AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.RemoteUserBackend']
 
+    DASHBOARD_REQUIRE_AUTHENTICATION = True
+
+
 LOG_DIR = '/var/log/graphite'
 SECRET_KEY = '$(date +%s | sha256sum | base64 | head -c 64)'
 

@@ -21,7 +21,9 @@ RUN apt-get -y --force-yes install vim\
  python-cairo\
  python-rrdtool\
  pkg-config\
- nodejs
+ nodejs\
+ libffi-dev\
+ libssl-dev
 
 # python dependencies
 RUN pip install django==1.5.12\
@@ -29,7 +31,7 @@ RUN pip install django==1.5.12\
  django-tagging==0.3.1\
  twisted==11.1.0\
  txAMQP==0.6.2\
- -e git+https://github.com/flared/nyt-pyiap.git@0c13f4654899d41ecbcd8d2c4ad37d7bd1982437#egg=nyt-pyiap
+ -e git+https://github.com/flared/nyt-pyiap.git@9740679088ee126346907e3c991c03ce60a3572a#egg=nyt-pyiap
 
 # install graphite
 RUN git clone -b 0.9.15 --depth 1 https://github.com/graphite-project/graphite-web.git /usr/local/src/graphite-web
